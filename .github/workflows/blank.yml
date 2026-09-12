@@ -34,7 +34,7 @@ jobs:
           ref: fc33593bf3018a6550db85d60b7deb3370451426
 
       - run: |
-          find .  # wtf
+          cd ./action
           npm ci
           npm run build
           
