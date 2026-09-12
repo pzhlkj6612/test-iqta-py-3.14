@@ -23,6 +23,7 @@ jobs:
       matrix:
         my_py: [false, true]
         py_ver: [3.13, 3.14]
+      fail-fast: false
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,6 +34,7 @@ jobs:
           ref: fc33593bf3018a6550db85d60b7deb3370451426
 
       - run: |
+          find .  # wtf
           npm ci
           npm run build
           
