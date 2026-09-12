@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        my_py: [false, true]
+        setup_python_by_iqta: [false, true]
         py_ver: [3.13, 3.14]
       fail-fast: false
 
@@ -47,7 +47,7 @@ jobs:
         shell: bash
           
       - name: Setup Python
-        if: ${{ matrix.my_py == 'true' }}
+        if: ${{ matrix.setup_python_by_iqta != 'true' }}
         uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.py_ver }}
@@ -56,4 +56,4 @@ jobs:
         uses: ./
         with:
           version: '6.11.*'
-          setup-python: ${{ matrix.my_py == 'false' }}
+          setup-python: ${{ matrix.setup_python_by_iqta }}
